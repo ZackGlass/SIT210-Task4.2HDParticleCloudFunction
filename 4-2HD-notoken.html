@@ -1,0 +1,41 @@
+<html>
+<head>
+	<style>
+		.mainDiv {
+		  border: 4px outset black;
+		  width: 200px;
+		  background-color: #404040;
+		  text-align: left;
+		  text-shadow: 2px 2px #131313;
+		  padding: 10px
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+	
+	<script type="text/javascript">
+		var particle = new Particle();
+		const accessToken = "";
+		const deviceId = "";
+		
+		function doPost(command){
+			document.getElementById("statusSpan").innerHTML = '';
+			
+			particle.callFunction({deviceId, name:"toggle", argument: command, auth:accessToken});
+		}
+		
+		
+	</script>
+</head>
+<body>
+		<div class="mainDiv">
+			<h4 style="text-align:center;color:white;"> Traffic Light Controller </h4>
+			<p style="color:white"><input type="radio" name="box" id="red" onchange="doPost('red')">
+			<label for="red"> Red </label><br>
+			<input type="radio" name="box" id="amber" onchange="doPost('amber')">
+			<label for="amber"> Amber </label><br>
+			<input type="radio" name="box" id="blue" onchange="doPost('blue')">
+			<label for="blue"> Blue </label><br>
+			<span id="statusSpan"></span><br><br></p>
+		</div>
+</body>
+</html>
